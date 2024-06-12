@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://epjw40pg0j87"]
+
+[ext_resource type="FontFile" uid="uid://d2yx856qsqh1b" path="res://Assets/Text/panton/Panton-BlackCaps.otf" id="1_8taw0"]
+[ext_resource type="Script" path="res://Scripts/number_tile.gd" id="1_lkgwg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_os77k"]
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="NumberTile" type="Node2D" node_paths=PackedStringArray("label", "border")]
+script = ExtResource("1_lkgwg")
+label = NodePath("BorderContainer/NumberText")
+border = NodePath("BorderContainer")
+
+[node name="BorderContainer" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+theme_override_styles/panel = SubResource("StyleBoxFlat_os77k")
+
+[node name="NumberText" type="Label" parent="BorderContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_8taw0")
+theme_override_font_sizes/font_size = 80
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
